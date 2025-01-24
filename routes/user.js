@@ -77,6 +77,12 @@ userRouter.get("/purchases", userMiddleware, async function(req, res){
 
     const purchases = await purchasesModel.find({
         userId
+    }).populate({
+        path:"courseId",
+        populate:{
+            path: "creatorId",
+            select : "firstname lastname"
+        }
     })
     res.json({
         purchases : purchases
