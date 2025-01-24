@@ -82,7 +82,7 @@ userRouter.get("/purchases", userMiddleware, async function(req, res){
         purchases : purchases
     })
 
-    //relation in mongo and get all data with the course id
+    
 })
 
 module.exports = {
