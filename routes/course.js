@@ -6,23 +6,14 @@ const courseRouter = Router()
 courseRouter.post("/purchases",userMiddleware, async function (req, res){
     const userId = req.userId
     const courseId = req.body.courseId
-    const courseTaken = purchasesModel.findOne({
-        courseId,
-        userId
-    })
-    if(!courseTaken){
-    await purchasesModel.create({
+    const courseTaken = await purchasesModel.create({
         courseId : courseId,
         userId : userId
     })
     res.json({
         message:"Purchased a course"
     })
-    }else{
-        res.json({
-            message : "Course is already bought"
-        })
-    }
+    
    
 })
 

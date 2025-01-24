@@ -106,20 +106,13 @@ adminRouter.put("/course", adminMiddleware, async function (req, res) {
         imageUrl: imageUrl,
         creatorId: adminId
     })
-    if (course.nModified > 0) {
-        // The course was updated successfully
-        res.json({ message: "Course updated successfully" });
-    } else if (course.n === 0) {
-        // No documents matched the query (possibly an invalid CourseId or creatorId)
-        res.json({ message: "Wrong Course ID" });
-    } else {
-        // The course was found but no changes were made (e.g., if data was identical)
-        res.json({ message: "No changes were made to the course" });
-    }
+    res.json({
+        "message":"Course Updated"
+    })
 })
 adminRouter.get("/course/bulk", adminMiddleware, async function (req, res) {
     const adminId = res.adminId
-    const { title, description, price, imageUrl } = req.body;
+
 
     const courses = await courseModel.find({
         creatorId: adminId
