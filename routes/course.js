@@ -1,7 +1,6 @@
 const { Router } = require("express")
 const { userMiddleware } = require("../middlewares/user")
 const { purchasesModel, courseModel } = require("../db")
-const { adminMiddleware } = require("../middlewares/admin")
 const courseRouter = Router()
 
 courseRouter.post("/purchases",userMiddleware, async function (req, res){
