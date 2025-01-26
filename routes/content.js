@@ -41,7 +41,7 @@ contentRouter.post("/add", adminMiddleware, async function (req, res) {
 
     try {
         const checkCourse = await courseModel.findOne({
-            courseId: courseId
+            _id: courseId
         })
 
         if (!checkCourse) {
@@ -71,4 +71,4 @@ contentRouter.post("/add", adminMiddleware, async function (req, res) {
 
 module.exports = {
     contentRouter
-}
+}   

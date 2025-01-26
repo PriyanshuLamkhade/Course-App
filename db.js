@@ -33,10 +33,10 @@ const contentSchema = new Schema({
     title : {type:String, required: true},
     description : {type:String},
     type: {type:String,required: true},  //video, pdf, link etc
-    createdBy : {type:String, ref:"admin",required: true},
+    createdBy : {type:String, ref:"admins",required: true},
     visibleToUsers: { type: Boolean, default: true },
     url :{type:String},
-    courseId : {type:String,ref:"course",required: true},
+    courseId : {type:String,ref:"courses",required: true},
 
 })
 
@@ -45,7 +45,7 @@ const userModel = mongoose.model("users", userSchema)
 const adminModel = mongoose.model("admins", adminSchema)
 const courseModel = mongoose.model("courses", courseSchema)
 const purchasesModel = mongoose.model("purchases", purchasesSchema)
-const contentModel = mongoose.model("content", contentSchema)
+const contentModel = mongoose.model("contents", contentSchema)
 
 module.exports = {
     userModel,
