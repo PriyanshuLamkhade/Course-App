@@ -29,6 +29,13 @@ const purchasesSchema = new Schema({
     userId: { type: ObjectId, ref: 'users' }
 })
 
+const contentSchema = new Schema({
+    courseId : {type:String,ref:"course"},
+    
+
+})
+
+
 const userModel = mongoose.model("users", userSchema)
 const adminModel = mongoose.model("admins", adminSchema)
 const courseModel = mongoose.model("courses", courseSchema)
@@ -40,4 +47,4 @@ module.exports = {
     adminModel,
     courseModel,
     purchasesModel
-}
+} 
