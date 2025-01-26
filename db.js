@@ -33,7 +33,6 @@ const contentSchema = new Schema({
     title : {type:String, required: true},
     description : {type:String},
     type: {type:String,required: true},  //video, pdf, link etc
-    
     createdBy : {type:String, ref:"admin",required: true},
     visibleToUsers: { type: Boolean, default: true },
     url :{type:String},
